@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+
 
 
 int cal_jointed_size(char* A,char* B){
@@ -30,7 +32,6 @@ int shell_move(char* from_dir,char* to_dir,char* name){
 }
 
 int main(int argc, char const *argv[]){
-    join_string("hello"," world");
 
     return 0;
 }
