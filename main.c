@@ -25,7 +25,7 @@ int shell_move(char* from_dir,char* to_dir,char* name){
     }
 
     if(path_exists(to_dir) == false){
-        printf("to dir not exists\n");
+        printf("%sは存在しません\n",to_dir);
         return -1;
     }
 
@@ -36,11 +36,15 @@ int shell_move(char* from_dir,char* to_dir,char* name){
     sprintf(to_path  ,"%s%s",to_dir  ,name);
 
     if(path_exists(from_path) == false){
-        printf("from path not exists\n");
+        printf("%sは存在しません\n",from_path);
+        
+        if(*(strchr(name,'\0') - 1) != '/'){
+           printf("もしかして::フォルダ名には\"/\"をつける必要があります\n");
+        }
         return -1;
     }
     if(path_exists(to_path)){
-        printf("to path not empty\n");
+        printf("%sはすでに存在します\n",to_path);
         return -1;
     }
     
