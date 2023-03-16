@@ -16,8 +16,10 @@ int cal_jointed_size(char* A,char* B){
     return (strchr(A,'\0') - A) + (strchr(B,'\0') - B);
 }
 
+// フォルダの最後には/をつける
 int shell_move(char* from_dir,char* to_dir,char* name){
     if(path_exists(to_dir) == false){
+        printf("to dir not exists\n");
         return -1;
     }
 
@@ -28,9 +30,11 @@ int shell_move(char* from_dir,char* to_dir,char* name){
     sprintf(to_path  ,"%s%s",to_dir  ,name);
 
     if(path_exists(from_path) == false){
+        printf("from path not exists\n");
         return -1;
     }
     if(path_exists(to_path)){
+        printf("to path not empty\n");
         return -1;
     }
     
