@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ -e ./test-data ];then
+    rm -r ./test-data
+fi
+
+mkdir test-data
+cd test-data
+mkdir aaa
+mkdir bbb
+cd aaa
+touch ccc
+cd ..
+cd bbb
+touch ddd
