@@ -37,7 +37,7 @@ int shell_move(char* from_dir,char* to_dir,char* name){
 
     if(path_exists(from_path) == false){
         printf("%sは存在しません\n",from_path);
-        
+
         if(*(strchr(name,'\0') - 1) != '/'){
            printf("もしかして::フォルダ名には\"/\"をつける必要があります\n");
         }
@@ -54,14 +54,11 @@ int shell_move(char* from_dir,char* to_dir,char* name){
 }
 
 int main(int argc, char const *argv[]){
-    shell_move("./test-dir/aaa","./test-dir/ccc/","bbb");
-    // shell_move("./test-dir/ccc/","./test-dir/aaa/","bbb");
-
-    if(shell_move("./test-dir/","test-dir/ccc/","aaa/") == -1){
-        printf("error\n");
-    }
-    if(shell_move("./test-dir/ccc/","test-dir/","aaa/") == -1){
-        printf("error\n");
-    }
+    shell_move("./test-data/aaa" ,"./test-data/bbb/","ccc");
+    shell_move("./test-data/aaa/","./test-data/bbb" ,"ccc");
+    shell_move("./test-data/aaa/","./test-data/not-exists/","aaa");
+    shell_move("./test-data/not-exists/","./test-data/aaa/","aaa");
+    
+    
     return 0;
 }
