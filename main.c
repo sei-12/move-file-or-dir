@@ -9,8 +9,10 @@ int join_string(char* A,char* B){
     sprintf(path,"%s%s",A,B);
     printf("%s\n",path);
 
-    return 0;
+int cal_jointed_size(char* A,char* B){
+    return (strchr(A,'\0') - A) + (strchr(B,'\0') - B);
 }
+
 
 int main(int argc, char const *argv[]){
     join_string("hello"," world");
