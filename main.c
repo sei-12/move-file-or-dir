@@ -54,6 +54,14 @@ int shell_move(char* from_dir,char* to_dir,char* name){
 }
 
 int main(int argc, char const *argv[]){
+    shell_move("./test-dir/aaa","./test-dir/ccc/","bbb");
+    // shell_move("./test-dir/ccc/","./test-dir/aaa/","bbb");
 
+    if(shell_move("./test-dir/","test-dir/ccc/","aaa/") == -1){
+        printf("error\n");
+    }
+    if(shell_move("./test-dir/ccc/","test-dir/","aaa/") == -1){
+        printf("error\n");
+    }
     return 0;
 }
