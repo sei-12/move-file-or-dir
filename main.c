@@ -18,6 +18,12 @@ int cal_jointed_size(char* A,char* B){
 
 // フォルダの最後には/をつける
 int shell_move(char* from_dir,char* to_dir,char* name){
+    if(*(strchr(from_dir,'\0') - 1) != '/' ||
+       *(strchr(to_dir  ,'\0') - 1) != '/'){
+        printf("引数:*_dirは\"*/\"である必要があります\n");
+        return -1;
+    }
+
     if(path_exists(to_dir) == false){
         printf("to dir not exists\n");
         return -1;
