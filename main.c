@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <sys/stat.h>
 
-
+bool path_exists(char* path){
+    struct stat st;
+    if(stat(path,&st) == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 int cal_jointed_size(char* A,char* B){
     return (strchr(A,'\0') - A) + (strchr(B,'\0') - B);
